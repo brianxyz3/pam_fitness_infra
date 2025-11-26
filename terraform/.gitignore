@@ -1,0 +1,15 @@
+# Terraform files and directories to ignore
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+crash.log
+
+# Variable files that might contain sensitive data
+# Use a separate file like terraform.tfvars.example for documentation
+*.tfvars
+*.tfvars.*
+
+# Public and Private ssh rsa key
+*_key
+*_key.*
