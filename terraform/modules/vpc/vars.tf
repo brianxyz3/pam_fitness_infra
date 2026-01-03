@@ -28,3 +28,5 @@ variable "environment" {
   description = "Environment tag (dev/prod)"
   default     = "pam_fitness_prod"
 }
+
+variable "nat_id" {}

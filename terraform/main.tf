@@ -23,6 +23,8 @@ provider "aws" {
 
 module "vpc" {
   source = "./modules/vpc"
+
+  nat_id = module.nat.nat_id
 }
 
 module "ecr" {

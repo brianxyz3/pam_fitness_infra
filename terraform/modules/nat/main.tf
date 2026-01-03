@@ -11,12 +11,13 @@ resource "aws_instance" "pam_fitness_nat_instance" {
 
   user_data = <<-EOF
     #!/bin/bash
-    sudo sysctl -w net.ipv4.ip_forward=1
-    sudo echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
+    sudo su
+    sysctl -w net.ipv4.ip_forward=1
+    echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 
-    dnf install -y iptables iptables-services
+    yum install -y iptables iptables-services
 
-    sudo iptables -t nat -A POSTROUTING -o enX0 -j MASQUERADE
+    iptables -t nat -A POSTROUTING -o enX0 -j MASQUERADE
 
     service iptables save
     systemctl enable iptables

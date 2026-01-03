@@ -13,6 +13,11 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "public_subnet_cidrs" {
+  type = list(string)
+  default = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
 variable "vpc_id" {}
 variable "public_subnets" {}
 variable "private_subnets" {}
